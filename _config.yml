@@ -3,7 +3,6 @@ description: "Showcasing my work and projects"
 baseurl: ""
 url: "https://namcreative.github.io"
 
-theme: "minimal-mistakes-jekyll"
 remote_theme: "mmistakes/minimal-mistakes"
 
 plugins:

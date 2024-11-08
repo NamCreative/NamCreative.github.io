@@ -1,12 +1,42 @@
-title: "My Personal Portfolio"
-description: "A showcase of my projects, skills, and experiences."
+title: "My Professional Portfolio"
+description: "Showcasing my work and projects"
 baseurl: ""
 url: "https://namcreative.github.io"
+
+theme: "minimal-mistakes-jekyll"
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-remote-theme
+
+remote_theme: "mmistakes/minimal-mistakes"
+
+# Navigation
+header_pages:
+  - index.md
+  - about.md
+  - projects.md
+  - blog.md
+  - contact.md
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "single"
+      author: "Nam"
+
 author:
   name: "Nam"
   email: "namvuhoai.forwork@gmail.com"
-remote_theme: "mmistakes/minimal-mistakes"
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
+  avatar: "/assets/images/avatar.jpg"
+  bio: "A passionate developer and designer"
+  links:
+    - label: "GitHub"
+      url: "https://github.com/namcreative"
+    - label: "LinkedIn"
+      url: "https://linkedin.com/in/namvuhoai"

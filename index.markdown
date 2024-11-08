@@ -1,6 +1,7 @@
 ---
 layout: home
 title: "Welcome to My World"
+permalink: /
 ---
 
 # Hello, I'm Nam 👋

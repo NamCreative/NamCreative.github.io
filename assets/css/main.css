@@ -112,3 +112,44 @@ footer a {
 footer a:hover {
     color: #e74c3c;
 }
+
+/* Media Queries cho Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .main-content {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        padding: 15px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+}

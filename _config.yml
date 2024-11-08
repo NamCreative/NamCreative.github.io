@@ -1,0 +1,12 @@
+title: "My Personal Portfolio"
+description: "A showcase of my projects, skills, and experiences."
+baseurl: ""
+url: "https://namcreative.github.io"
+author:
+  name: "Nam"
+  email: "namvuhoai.forwork@gmail.com"
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed

@@ -1,12 +1,16 @@
+// Lấy phần tử toggle và icon
 const toggleButton = document.getElementById('dark-mode-toggle');
 const toggleIcon = toggleButton.querySelector('i');
 
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDarkMode = document.body.classList.contains('dark-mode');
+// Hàm chuyển đổi Dark Mode
+function toggleDarkMode() {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+    updateToggleIcon(isDarkMode);
+}
 
-    // Thay đổi icon khi chuyển đổi chế độ
+// Hàm cập nhật icon
+function updateToggleIcon(isDarkMode) {
     if (isDarkMode) {
         toggleIcon.classList.remove('fa-moon');
         toggleIcon.classList.add('fa-sun');
@@ -14,11 +18,18 @@ toggleButton.addEventListener('click', () => {
         toggleIcon.classList.remove('fa-sun');
         toggleIcon.classList.add('fa-moon');
     }
+}
+
+// Kiểm tra trạng thái Dark Mode từ LocalStorage khi tải trang
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeSetting = localStorage.getItem('darkMode');
+    const isDarkMode = darkModeSetting === 'enabled';
+
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
+    updateToggleIcon(isDarkMode);
 });
 
-// Kiểm tra trạng thái Dark Mode khi tải trang
-if (localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark-mode');
-    toggleIcon.classList.remove('fa-moon');
-    toggleIcon.classList.add('fa-sun');
-}
+// Lắng nghe sự kiện click
+toggleButton.addEventListener('click', toggleDarkMode);

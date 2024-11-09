@@ -14,20 +14,6 @@ body {
     margin-bottom: 15px;
 }
 
-.menu a {
-    color: #64ffda;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-}
-
-#dark-mode-toggle {
-    cursor: pointer;
-    margin-top: 20px;
-    color: #64ffda;
-    background: none;
-    border: none;
-}
 
 
 .card {
@@ -37,15 +23,6 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark-mode #dark-mode-toggle i {
-    color: #ffda64;
 }
 
 /* Định dạng logo icon */
@@ -69,45 +46,84 @@ body.dark-mode #dark-mode-toggle i {
     transform: scale(1.1);
 }
 
-/* Định dạng menu */
+/* Cập nhật menu điều hướng */
 .menu a {
     color: #50c8c6;
     text-decoration: none;
     font-size: 18px;
-    padding: 12px 0;
+    padding: 15px 0;
     display: flex;
     align-items: center;
-    transition: color 0.3s, padding-left 0.2s;
+    justify-content: flex-start;
+    transition: color 0.3s, padding-left 0.3s;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #2b2b2b;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .menu a i {
-    margin-right: 10px;
+    margin-right: 12px;
+    font-size: 1.3rem;
     color: #50c8c6;
 }
 
 .menu a:hover {
     color: #64ffda;
-    padding-left: 15px;
+    padding-left: 20px;
+    background-color: #1a1a1a;
 }
 
-/* Định dạng Dark Mode toggle */
+/* Định dạng lại Dark Mode Toggle */
 #dark-mode-toggle {
     color: #50c8c6;
     margin-top: 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
+    background-color: #2b2b2b;
+    padding: 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #dark-mode-toggle i {
     margin-right: 10px;
+    font-size: 1.2rem;
 }
 
 #dark-mode-toggle:hover {
-    color: #64ffda;
+    color: #ffda64;
+    background-color: #1a1a1a;
+    transform: scale(1.05);
 }
 
+/* Hiệu ứng icon Dark Mode khi chuyển trạng thái */
+body.dark-mode #dark-mode-toggle {
+    color: #ffda64;
+    background-color: #333333;
+    box-shadow: 0 4px 10px rgba(255, 255, 0, 0.2);
+}
 
+body.dark-mode .menu a {
+    background-color: #333333;
+}
+
+body.dark-mode .menu a:hover {
+    background-color: #444444;
+    color: #ffda64;
+}
+
+/* Hiệu ứng chuyển đổi cho icon */
+#dark-mode-toggle i {
+    transition: transform 0.3s;
+}
+
+#dark-mode-toggle:active i {
+    transform: rotate(180deg);
+}
 
 .blog-icon {
     color: #64ffda;
@@ -156,16 +172,105 @@ body.dark-mode #dark-mode-toggle i {
     /* Đảm bảo nội dung không vượt quá chiều rộng màn hình */
 }
 
-/* Responsive layout cho màn hình nhỏ */
-@media screen and (max-width: 768px) {
+
+/* Breakpoints */
+@media (max-width: 768px) {
+
+    /* Ẩn sidebar trên thiết bị nhỏ */
     .sidebar-left {
-        width: 220px;
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+        background-color: #1c1c1c;
     }
 
-    .hero,
+    /* Căn chỉnh lại logo và thông tin profile */
+    .logo-icon {
+        font-size: 2rem;
+    }
+
+    .profile {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    /* Menu điều hướng dạng dọc */
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #dark-mode-toggle {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    /* Hero Section cho mobile */
+    .hero {
+        margin-left: 0;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    /* Main Content */
     .main-content {
-        margin-left: 240px;
+        margin-left: 0;
         padding: 20px;
-        max-width: calc(100% - 240px);
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Tối ưu cho màn hình rất nhỏ */
+    .menu a {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    #dark-mode-toggle {
+        font-size: 0.9rem;
     }
 }

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 title: "Welcome to My World"
 permalink: /
 ---

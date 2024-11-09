@@ -1,6 +1,8 @@
 title: "My Professional Portfolio"
 description: "Showcasing my work and projects"
-baseurl: ""
+baseurl: "" # Để trống nếu không dùng subdirectory
+markdown_ext: "markdown,md"
+permalink: /:basename/
 url: "https://namcreative.github.io"
 
 remote_theme: "mmistakes/minimal-mistakes"
@@ -17,16 +19,14 @@ header_pages:
   - index.md
   - about.md
   - projects.md
-  - blog.md
   - contact.md
 
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: "pages"
     values:
-      layout: "single"
-      author: "Nam"
+      layout: "default"
 
 author:
   name: "Nam"

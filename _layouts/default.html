@@ -4,37 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
+    <title>{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/images/favicon.png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 </head>
 
-<body>
-    <header class="header-container">
-        <div class="avatar-wrapper">
-            <div class="avatar"></div>
+<body class="light-mode">
+    <!-- Sidebar trái -->
+    <aside class="sidebar-left">
+        <div class="profile">
+            <i class="fa-solid fa-laptop-code fa-4x logo-icon"></i>
+            <h2>Nam Vu Hoai</h2>
+            <p>Innovative software engineer with a passion for impactful design.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-medium"></i></a>
+            </div>
         </div>
-        <h1 class="site-title">{{ site.title }}</h1>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="{{ '/' | relative_url }}">Home</a></li>
-                <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-                <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-                <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-                <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+
+        <!-- Cập nhật menu điều hướng -->
+        <nav class="menu">
+            <ul>
+                <li><a href="{{ site.baseurl }}/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{{ site.baseurl }}/about/"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="{{ site.baseurl }}/projects/"><i class="fas fa-briefcase"></i> Projects</a></li>
+                <li><a href="{{ site.baseurl }}/contact/"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-    </header>
 
+
+        <!-- Dark Mode Toggle -->
+        <button id="dark-mode-toggle"><i class="fas fa-moon"></i> Dark Mode</button>
+
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My World 🌍</h1>
+            <p>Crafting software solutions with modern design and creativity.</p>
+            <a href="/projects" class="btn-primary">Explore My Work</a>
+        </div>
+
+    </section>
+
+    <!-- Main Content: Blog Cards -->
     <main class="main-content">
-        {{ content }}
+        {% if page.url == "/" %}
+        <!-- Hiển thị phần blog chỉ ở trang chủ -->
+        <section class="blog-cards">
+            <div class="card">
+                <i class="fa-solid fa-file-code fa-3x blog-icon"></i>
+                <div class="card-content">
+                    <h3>Mastering JavaScript in 2024</h3>
+                    <p>A guide to mastering the versatile JavaScript language.</p>
+                    <span>January 15, 2024 · 5 min read</span>
+                </div>
+            </div>
+        </section>
+        {% else %}
+        <!-- Render nội dung của các trang khác -->
+        <div class="page-content">
+            {{ content }}
+        </div>
+        {% endif %}
     </main>
 
-    <footer>
-        <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
-        <p>Connect with me on <a href="https://linkedin.com/in/namvuhoai">LinkedIn</a> and <a
-                href="https://github.com/namcreative">GitHub</a>.</p>
-    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
